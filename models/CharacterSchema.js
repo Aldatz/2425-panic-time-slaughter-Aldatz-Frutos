@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const CharacterSchema = new mongoose.Schema({
-    _id: mongoose.Types.ObjectId,
+    _id: mongoose.Schema.Types.ObjectId,
     name: { type: String },
     occupation: { type: String },
     description: { type: String },
@@ -11,16 +11,20 @@ const CharacterSchema = new mongoose.Schema({
         stamina: { type: Number }
     },
     equipment: {
-        saddlebag: { type: [String] },
+        saddlebag: { type: [mongoose.Schema.Types.ObjectId] },
         quiver: { type: Number },
-        weapons: { type: [String] },
+        weapons: { type: [mongoose.Schema.Types.ObjectId] },
         pouch: { 
             coins: { type: Number },
-            gold: { type: Number }
+            gold: { type: Number },
+            precious_stones: { type: [mongoose.Schema.Types.ObjectId] }
          },
-        precious_stones: { type: [String] },
-        miscellaneous: { type: [] },
+        miscellaneous: { type: [String] },
     },
 });
 
-export const Character = mongoose.model('Character', CharacterSchema);
+const Character = mongoose.model('Character', CharacterSchema);
+
+module.exports = Character
+
+

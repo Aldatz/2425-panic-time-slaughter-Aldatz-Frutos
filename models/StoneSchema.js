@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const StoneSchema = new mongoose.Schema({
     _id: mongoose.Types.ObjectId,

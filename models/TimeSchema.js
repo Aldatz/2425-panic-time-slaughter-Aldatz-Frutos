@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const TimeSchema = new mongoose.Schema({
     _id: mongoose.Types.ObjectId,
